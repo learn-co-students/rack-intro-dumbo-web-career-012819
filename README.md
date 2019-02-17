@@ -1,11 +1,11 @@
 # Inspecting The Web With Rack
 
 ##  Objectives
-1. Explain the mechanics of Rack 
-2. Create a basic web app 
+1. Explain the mechanics of Rack
+2. Create a basic web app
 3. Set up an HTTP web server using a `config.ru` file and the `rackup` command
 
-## Why Rack? 
+## Why Rack?
 
 We've learned how the web works so far using abstract concepts. Problem is, when you are dealing with massive websites like YouTube or Facebook it's hard to fully understand the moving parts because there are so many of them. Thankfully, there is a gem for Ruby that will help us create a web server at its simplest. This gem is called [Rack](https://rack.github.io/) and it is what Rails is built on top of. Before we get to the complexity of Rails, let's first understand HTTP in its simplest form.
 
@@ -13,9 +13,9 @@ Let's start by getting the mechanics of Rack working.
 
 ## Setting up Rack
 
-To work with Rack we need to create a new class that responds to a single method: `#call`. All this method needs to do is return a response which consists of the status code, any headers, and the body. This can all be done using the `Rack::Response` object. 
+To work with Rack we need to create a new class that responds to a single method: `#call`. All this method needs to do is return a response which consists of the status code, any headers, and the body. This can all be done using the `Rack::Response` object.
 
-Using this, let's create a basic web app. Follow along with the below instructions. 
+Using this, let's create a basic web app. Follow along with the below instructions.
 
 We first create a `Rack::Response` object, then add some text "Hello, World" to the body, and complete the response with the `#finish` method. By default, Rack sets our status codes and headers. Don't worry about the `env` input. This holds all of the *request* info in it and we will use it later!
 
@@ -48,7 +48,7 @@ To execute this code we then run `rackup config.ru`. If everything goes as plann
 [2015-11-27 16:48:22] INFO  WEBrick::HTTPServer#start: pid=11275 port=9292
 ```
 
-Notice it says `port=9292`. If you open your browser and go to `http://localhost:9292/` you should see `Hello, World`. 
+Notice it says `port=9292`. If you open your browser and go to `http://localhost:9292/` you should see `Hello, World`.
 
 >Note: If you're using the Learn IDE, you won't be able to get to your website with `localhost`. Instead, you'll see a line that looks something like this - `Starting server on 159.203.101.28:30001`. To see the webpage, just go to `159.203.101.28:30001` in your web browser. Anywhere these instructions tell you to go to `localhost`, replace that with this IP address instead!
 
